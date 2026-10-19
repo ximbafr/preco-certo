@@ -745,6 +745,14 @@ const custoEl=$("custo"), despEl=$("despesas"), margEl=$("margem"), rangeEl=$("m
 function calc(){
   const custo = parseNum(custoEl.value), desp = parseNum(despEl.value), marg = parseNum(margEl.value);
   errEl.textContent = "";
+  // Não exibe resultados antigos quando os dados são inválidos.
+  if ([custo,desp,marg].some(Number.isNaN) || custo<0 || desp<0 || marg<0 || marg>=100){
+    $("resPreco").textContent = "—";
+    $("resBase").textContent = "—";
+    $("resSobra").textContent = "—";
+    $("resMargemTxt").textContent = "—";
+    ["barCusto","barDesp","barMarg"].forEach(id => $(id).style.width = "0%");
+  }
   if ([custo,desp,marg].some(Number.isNaN) || custo<0 || desp<0 || marg<0){
     errEl.textContent = "Informe apenas números válidos (ex.: 25,00).";
     return;
