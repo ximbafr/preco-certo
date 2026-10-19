@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Preço Certo — Kit de Precificação para quem vende serviços e produtos</title>
+  <meta name="description" content="Calculadora de precificação em Excel + guia visual em PDF. Organize custos, estime preços e visualize margens em minutos. Pagamento único de R$ 29,90.">
+  <meta name="theme-color" content="#F8F5EF">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Preço Certo — Kit de Precificação">
+  <meta property="og:description" content="Você sabe quanto realmente sobra de cada venda? Calculadora em Excel + guia em PDF por R$ 29,90.">
+  <meta property="og:locale" content="pt_BR">
+  <!-- SUBSTITUIR: URL pública da página e imagem de compartilhamento -->
+  <meta property="og:url" content="https://SEU-DOMINIO.com.br/">
+  <meta property="og:image" content="https://SEU-DOMINIO.com.br/og-image.jpg">
+  <link rel="canonical" href="https://SEU-DOMINIO.com.br/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23167D73'/%3E%3Ctext x='32' y='43' font-size='32' font-family='Georgia' font-weight='700' fill='%23F8F5EF' text-anchor='middle'%3ER$%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Preço Certo — Kit de Precificação",
+    "description": "Calculadora de precificação em Excel e guia visual em PDF para autônomos e pequenos empreendedores.",
+    "offers": {
+      "@type": "Offer",
+      "price": "29.90",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+
+<style>
+  :root{
+    --cream:#F8F5EF;
+    --cream-2:#F1ECE2;
+    --green:#167D73;
+    --green-d:#0F5F57;
+    --green-l:#E2F0EC;
+    --graphite:#263C39;
+    --ink:#1C2C2A;
+    --muted:#5E6E6B;
+    --coral:#F4A89A;
+    --coral-l:#FBE1DB;
+    --yellow:#FFCF77;
+    --yellow-l:#FFF1D6;
+    --white:#FFFFFF;
+    --line:rgba(38,60,57,.12);
+    --shadow-sm:0 1px 2px rgba(38,60,57,.06), 0 4px 14px rgba(38,60,57,.06);
+    --shadow-md:0 2px 6px rgba(38,60,57,.06), 0 18px 40px rgba(38,60,57,.10);
+    --r-lg:28px; --r-md:20px; --r-sm:14px;
+    --font-head:"Fraunces", Georgia, serif;
+    --font-body:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --gutter:20px;
+    --max:1120px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--cream);color:var(--ink);
+    font-family:var(--font-body);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:calc(84px + env(safe-area-inset-bottom));
+  }
+  @media (min-width:900px){ body{padding-bottom:0} }
+
+  img,svg{display:block;max-width:100%}
+  a{color:inherit}
+  button{font:inherit;cursor:pointer}
+  input{font:inherit}
+  :focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:6px}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  .wrap{width:100%;max-width:var(--max);margin:0 auto;padding-left:max(var(--gutter),env(safe-area-inset-left));padding-right:max(var(--gutter),env(safe-area-inset-right))}
+  section{padding:64px 0}
+  @media (min-width:900px){ section{padding:104px 0} }
+
+  h1,h2,h3{font-family:var(--font-head);color:var(--graphite);margin:0;letter-spacing:-.015em;line-height:1.1;font-weight:600}
+  h1{font-size:clamp(2.2rem,6.2vw,3.9rem)}
+  h2{font-size:clamp(1.75rem,4.4vw,2.6rem)}
+  h3{font-size:1.2rem;font-weight:600}
+  p{margin:0}
+  .lead{font-size:1.05rem;color:var(--muted);max-width:60ch}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+  .eyebrow::before{content:"";width:18px;height:2px;background:var(--green);border-radius:2px}
+  .section-head{max-width:640px;margin-bottom:36px}
+  .section-head p{margin-top:12px}
+  .center{text-align:center;margin-left:auto;margin-right:auto}
+  .center .eyebrow::before{display:none}
+  .hl{background:linear-gradient(180deg,transparent 62%,var(--yellow) 62%,var(--yellow) 92%,transparent 92%);padding:0 .08em}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid transparent;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;will-change:transform}
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--green);color:#fff;box-shadow:0 8px 20px rgba(22,125,115,.28)}
+  .btn-primary:hover{background:var(--green-d);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--graphite);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--white)}
+  .btn-block{width:100%}
+  .btn svg{width:18px;height:18px}
+
+  /* Header */
+  .top{position:sticky;top:0;z-index:40;backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);background:rgba(248,245,239,.82);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-head);font-weight:700;font-size:1.15rem;color:var(--graphite)}
+  .logo-mark{width:32px;height:32px;border-radius:10px;background:var(--green);color:#fff;display:grid;place-items:center;font-size:.8rem;font-family:var(--font-body);font-weight:700;letter-spacing:-.02em}
+  .top nav{display:none;gap:28px;font-size:.92rem;font-weight:500;color:var(--muted)}
+  .top nav a{text-decoration:none}
+  .top nav a:hover{color:var(--graphite)}
+  .top .btn{min-height:42px;padding:0 18px;font-size:.92rem}
+  @media (min-width:900px){ .top nav{display:flex} }
+  @media (max-width:380px){ .hide-xs{display:none} }
+
+  /* Hero */
+  .hero{padding:48px 0 56px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:auto -20% -40% auto;width:60vw;height:60vw;max-width:620px;max-height:620px;background:radial-gradient(closest-side,rgba(255,207,119,.35),transparent 70%);pointer-events:none}
+  .hero-grid{display:grid;gap:40px;align-items:center}
+  .hero .lead{margin-top:18px}
+  .hero-cta{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:20px;font-size:.86rem;color:var(--muted)}
+  .hero-meta span{display:inline-flex;align-items:center;gap:6px}
+  .hero-meta svg{width:16px;height:16px;color:var(--green)}
+  @media (min-width:900px){
+    .hero{padding:88px 0}
+    .hero-grid{grid-template-columns:1.05fr .95fr;gap:64px}
+    .hero-cta{flex-direction:row}
+  }
+
+  /* Product mockup (CSS illustration) */
+  .mock{position:relative;isolation:isolate}
+  .mock-note{position:absolute;top:-10px;left:12px;z-index:3;font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--graphite);color:#fff;padding:6px 10px;border-radius:999px}
+  .mock-sheet{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-md);padding:18px;border:1px solid var(--line);transform:rotate(-1.5deg)}
+  .mock-pdf{position:absolute;right:-6px;bottom:-22px;width:46%;background:var(--graphite);color:var(--cream);border-radius:var(--r-sm);box-shadow:var(--shadow-md);padding:16px;transform:rotate(3deg);z-index:2}
+  .mock-pdf small{display:block;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7;margin-bottom:6px}
+  .mock-pdf strong{font-family:var(--font-head);font-size:1.05rem;line-height:1.15;display:block}
+  .mock-pdf .lines{margin-top:12px;display:grid;gap:6px}
+  .mock-pdf .lines i{display:block;height:5px;border-radius:3px;background:rgba(255,255,255,.18)}
+  .mock-pdf .lines i:nth-child(2){width:80%}
+  .mock-pdf .lines i:nth-child(3){width:60%;background:var(--coral)}
+  .mock-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .mock-top b{font-size:.78rem;font-weight:600;color:var(--graphite)}
+  .mock-top i{display:flex;gap:5px}
+  .mock-top i::before,.mock-top i::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--cream-2)}
+  .mock-table{display:grid;gap:7px;font-size:.74rem}
+  .mock-row{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:8px;align-items:center}
+  .mock-row > span{background:var(--cream);border-radius:7px;padding:7px 9px;color:var(--graphite);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mock-row.h > span{background:var(--green-l);color:var(--green-d);font-weight:600}
+  .mock-row .num{text-align:right;font-variant-numeric:tabular-nums}
+  .mock-row.total > span{background:var(--graphite);color:#fff;font-weight:600}
+  .mock-bar{margin-top:12px;height:10px;border-radius:5px;background:var(--cream-2);overflow:hidden;display:flex}
+  .mock-bar i{height:100%}
+  .mock-legend{display:flex;gap:12px;margin-top:8px;font-size:.66rem;color:var(--muted)}
+  .mock-legend span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;vertical-align:-1px;background:var(--c)}
+  @media (min-width:900px){ .mock-sheet{padding:24px} .mock-table{font-size:.82rem} }
+
+  /* Calculator */
+  .calc-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);overflow:hidden;display:grid}
+  .calc-form{padding:24px}
+  .calc-result{background:var(--graphite);color:var(--cream);padding:28px 24px}
+  .field{display:grid;gap:6px;margin-bottom:16px}
+  .field label{font-size:.88rem;font-weight:600;color:var(--graphite)}
+  .field small{color:var(--muted);font-size:.78rem}
+  .input{position:relative}
+  .input span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-weight:600;color:var(--muted);font-size:.95rem;pointer-events:none}
+  .input input{width:100%;height:52px;border:1.5px solid var(--line);border-radius:var(--r-sm);padding:0 14px 0 44px;font-size:1.05rem;background:var(--cream);color:var(--ink);font-variant-numeric:tabular-nums;transition:border-color .15s,background .15s;appearance:none;-webkit-appearance:none}
+  .input input:focus{border-color:var(--green);background:#fff;outline:none;box-shadow:0 0 0 4px rgba(22,125,115,.12)}
+  .input.suffix input{padding:0 44px 0 14px}
+  .input.suffix span{left:auto;right:14px}
+  .range{width:100%;margin-top:8px;accent-color:var(--green)}
+  .res-label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+  .res-value{font-family:var(--font-head);font-size:clamp(2.4rem,9vw,3.4rem);font-weight:600;line-height:1;margin:10px 0 4px;color:var(--yellow);font-variant-numeric:tabular-nums}
+  .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+  .res-item{background:rgba(255,255,255,.07);border-radius:var(--r-sm);padding:12px 14px}
+  .res-item b{display:block;font-size:1.05rem;font-variant-numeric:tabular-nums}
+  .res-item small{opacity:.7;font-size:.76rem}
+  .res-bar{margin-top:20px;height:12px;border-radius:6px;background:rgba(255,255,255,.1);overflow:hidden;display:flex}
+  .res-bar i{height:100%;transition:width .35s ease}
+  .res-legend{display:flex;justify-content:space-between;font-size:.74rem;opacity:.75;margin-top:8px}
+  .calc-disclaimer{margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:.78rem;line-height:1.5;opacity:.8}
+  .calc-err{color:var(--coral);font-size:.8rem;margin-top:6px;min-height:1.2em}
+  @media (min-width:900px){
+    .calc-card{grid-template-columns:1.1fr .9fr}
+    .calc-form{padding:36px}
+    .calc-result{padding:36px}
+  }
+
+  /* Cards grid */
+  .grid{display:grid;gap:16px}
+  @media (min-width:700px){ .grid-2{grid-template-columns:1fr 1fr} .grid-3{grid-template-columns:repeat(3,1fr)} }
+  .card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:24px;box-shadow:var(--shadow-sm)}
+  .card h3{margin-top:14px}
+  .card p{margin-top:8px;color:var(--muted);font-size:.95rem}
+  .icon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:var(--green-l);color:var(--green)}
+  .icon svg{width:22px;height:22px}
+  .icon.coral{background:var(--coral-l);color:#C4604E}
+  .icon.yellow{background:var(--yellow-l);color:#A5690D}
+
+  /* Pains vs benefits */
+  .pain{border-left:4px solid var(--coral)}
+  .benefit{border-left:4px solid var(--green)}
+  .vs{display:grid;gap:16px}
+  .vs-col h3{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;font-family:var(--font-body);color:var(--muted);margin-bottom:12px}
+  .vs ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+  .vs li{display:flex;gap:12px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:var(--r-sm);padding:14px 16px;font-size:.95rem}
+  .vs li svg{flex:none;width:20px;height:20px;margin-top:2px}
+  .vs .pain-i{color:#C4604E}.vs .ok-i{color:var(--green)}
+  @media (min-width:800px){ .vs{grid-template-columns:1fr 1fr;gap:28px} }
+
+  /* Steps */
+  .steps{counter-reset:s;display:grid;gap:16px}
+  .step{position:relative;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:28px 24px 24px;box-shadow:var(--shadow-sm)}
+  .step::before{counter-increment:s;content:"0" counter(s);font-family:var(--font-head);font-weight:700;font-size:2.2rem;color:var(--green);line-height:1;display:block;margin-bottom:14px;opacity:.9}
+  .step h3{font-size:1.15rem}
+  .step p{margin-top:8px;color:var(--muted);font-size:.95rem}
+  @media (min-width:800px){ .steps{grid-template-columns:repeat(3,1fr);gap:20px} }
+
+  /* Files */
+  .files{display:grid;gap:20px}
+  .file{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm)}
+  .file-vis{position:relative;background:var(--cream-2);padding:28px 24px 0;overflow:hidden;min-height:220px}
+  .file-vis .tag{position:absolute;top:14px;right:14px;font-size:.66rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:rgba(38,60,57,.85);color:#fff;padding:5px 9px;border-radius:999px}
+  .file-body{padding:22px 24px 26px}
+  .file-body .kicker{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+  .file-body h3{margin-top:6px;font-size:1.3rem}
+  .file-body p{margin-top:8px;color:var(--muted);font-size:.95rem}
+  .file-body ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:.92rem}
+  .file-body li{display:flex;gap:10px;align-items:flex-start}
+  .file-body li svg{flex:none;width:18px;height:18px;color:var(--green);margin-top:2px}
+  .xls{background:#fff;border-radius:14px 14px 0 0;box-shadow:var(--shadow-md);padding:14px;font-size:.72rem;margin-top:6px}
+  .xls .tabs{display:flex;gap:6px;margin-bottom:10px}
+  .xls .tabs span{padding:4px 9px;border-radius:6px;background:var(--cream);color:var(--muted)}
+  .xls .tabs span.on{background:var(--green);color:#fff}
+  .xls .cells{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:4px}
+  .xls .cells span{background:var(--cream);padding:6px 7px;border-radius:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums}
+  .xls .cells .h{background:var(--green-l);color:var(--green-d);font-weight:600}
+  .xls .cells .k{background:var(--yellow-l);color:#8A5A0B;font-weight:600}
+  .pdfbook{display:flex;gap:12px;margin-top:6px;align-items:flex-end}
+  .page{flex:1;background:#fff;border-radius:12px 12px 0 0;box-shadow:var(--shadow-md);padding:14px;min-height:170px}
+  .page.dark{background:var(--graphite);color:var(--cream)}
+  .page .t{font-family:var(--font-head);font-weight:600;font-size:.95rem;line-height:1.15}
+  .page .l{display:grid;gap:5px;margin-top:10px}
+  .page .l i{height:5px;border-radius:3px;background:var(--cream-2);display:block}
+  .page.dark .l i{background:rgba(255,255,255,.18)}
+  .page .l i:nth-child(2){width:85%}.page .l i:nth-child(4){width:70%}
+  .page .chart{display:flex;gap:4px;align-items:flex-end;height:48px;margin-top:12px}
+  .page .chart i{flex:1;border-radius:3px 3px 0 0;background:var(--green)}
+  .page .chart i:nth-child(2){height:60%;background:var(--coral)}.page .chart i:nth-child(3){height:85%;background:var(--yellow)}.page .chart i:nth-child(1){height:40%}.page .chart i:nth-child(4){height:100%}
+  @media (min-width:800px){ .files{grid-template-columns:1fr 1fr} }
+
+  /* Examples */
+  .ex{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:24px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+  .ex-head{display:flex;align-items:center;gap:12px}
+  .ex-head h3{font-size:1.1rem}
+  .ex-head small{display:block;color:var(--muted);font-size:.8rem}
+  .ex-rows{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:.92rem}
+  .ex-rows li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line)}
+  .ex-rows li span:last-child{font-variant-numeric:tabular-nums;font-weight:600;color:var(--graphite)}
+  .ex-rows li.tot{border:none;background:var(--green-l);border-radius:10px;padding:10px 12px;margin-top:4px}
+  .ex-rows li.tot span:last-child{color:var(--green-d)}
+  .ex-note{margin-top:14px;font-size:.84rem;color:var(--muted);line-height:1.5}
+  .fict{display:inline-flex;align-items:center;gap:6px;background:var(--yellow-l);color:#8A5A0B;font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:5px 10px;border-radius:999px;margin-bottom:16px}
+
+  /* Offer */
+  .offer{background:var(--graphite);color:var(--cream);border-radius:var(--r-lg);padding:36px 24px;position:relative;overflow:hidden}
+  .offer::after{content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(closest-side,rgba(22,125,115,.6),transparent 70%)}
+  .offer > *{position:relative;z-index:1}
+  .offer h2{color:#fff}
+  .offer .lead{color:rgba(248,245,239,.78)}
+  .price{display:flex;align-items:baseline;gap:8px;margin:26px 0 4px}
+  .price b{font-family:var(--font-head);font-size:clamp(3rem,12vw,4.2rem);font-weight:600;line-height:1;color:var(--yellow)}
+  .price small{font-size:1rem;color:rgba(248,245,239,.8)}
+  .price-sub{font-size:.9rem;color:rgba(248,245,239,.7)}
+  .incl{margin:26px 0;padding:0;list-style:none;display:grid;gap:12px;font-size:.98rem}
+  .incl li{display:flex;gap:12px;align-items:flex-start}
+  .incl svg{flex:none;width:20px;height:20px;color:var(--yellow);margin-top:2px}
+  .offer .btn-primary{box-shadow:0 10px 26px rgba(22,125,115,.45)}
+  .offer-foot{margin-top:16px;font-size:.8rem;color:rgba(248,245,239,.65);display:flex;flex-wrap:wrap;gap:8px 16px}
+  .offer-foot span{display:inline-flex;gap:6px;align-items:center}
+  .offer-foot svg{width:15px;height:15px}
+  @media (min-width:900px){
+    .offer{padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+    .offer-right{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-md);padding:32px}
+    .price{margin-top:0}
+  }
+
+  /* FAQ */
+  .faq{max-width:760px;margin:0 auto}
+  .faq details{background:var(--white);border:1px solid var(--line);border-radius:var(--r-sm);margin-bottom:10px;box-shadow:var(--shadow-sm)}
+  .faq summary{list-style:none;cursor:pointer;padding:18px 20px;font-weight:600;display:flex;justify-content:space-between;gap:16px;align-items:center;color:var(--graphite)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-weight:500;color:var(--green);transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq .a{padding:0 20px 20px;color:var(--muted);font-size:.95rem}
+
+  /* Footer */
+  footer{border-top:1px solid var(--line);padding:40px 0 32px;font-size:.86rem;color:var(--muted)}
+  .foot-grid{display:grid;gap:28px}
+  .foot-grid h4{font-family:var(--font-body);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite);margin:0 0 10px}
+  .foot-grid p{margin:0 0 4px}
+  .foot-grid a{color:var(--graphite);text-decoration:underline;text-underline-offset:3px}
+  .foot-bottom{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-size:.78rem;display:flex;flex-direction:column;gap:8px}
+  .placeholder{color:#B4895A;background:var(--yellow-l);padding:1px 6px;border-radius:5px;font-size:.8em}
+  @media (min-width:800px){ .foot-grid{grid-template-columns:1.4fr 1fr 1fr} .foot-bottom{flex-direction:row;justify-content:space-between} }
+
+  /* Sticky mobile CTA */
+  .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));background:rgba(248,245,239,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);display:flex;align-items:center;gap:14px;transform:translateY(110%);transition:transform .3s ease}
+  .sticky-cta.show{transform:none}
+  .sticky-cta .sp{line-height:1.2}
+  .sticky-cta .sp b{display:block;font-family:var(--font-head);font-size:1.25rem;color:var(--graphite)}
+  .sticky-cta .sp small{font-size:.74rem;color:var(--muted)}
+  .sticky-cta .btn{flex:1;min-height:48px}
+  @media (min-width:900px){ .sticky-cta{display:none} }
+
+  /* Toast */
+  .toast{position:fixed;left:50%;bottom:calc(100px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:var(--graphite);color:#fff;padding:12px 18px;border-radius:14px;font-size:.9rem;box-shadow:var(--shadow-md);opacity:0;pointer-events:none;transition:.25s;z-index:60;max-width:calc(100% - 40px);text-align:center}
+  .toast.on{opacity:1;transform:translate(-50%,0)}
+  @media (min-width:900px){ .toast{bottom:32px} }
+
+  /* Reveal */
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .rv{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+    .btn,.res-bar i,.sticky-cta{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="top">
+  <div class="wrap">
+    <a href="#" class="logo" aria-label="Preço Certo — início"><span class="logo-mark">R$</span>Preço Certo</a>
+    <nav aria-label="Seções da página">
+      <a href="#simular">Simular</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#arquivos">O que vem</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <a href="#oferta" class="btn btn-primary js-buy"><span class="hide-xs">Quero o kit · </span>R$ 29,90</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" aria-labelledby="h-hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Kit de precificação · Excel + PDF</span>
+      <h1 id="h-hero">Você sabe quanto <span class="hl">realmente sobra</span> de cada venda?</h1>
+      <p class="lead">O Preço Certo organiza seus custos, calcula um preço de referência e mostra a margem de cada produto ou serviço — para você decidir com clareza, não no chute.</p>
+      <div class="hero-cta">
+        <a href="#oferta" class="btn btn-primary js-buy">Quero o kit por R$ 29,90
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#simular" class="btn btn-ghost">Fazer uma simulação grátis</a>
+      </div>
+      <div class="hero-meta" aria-label="Informações rápidas">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pagamento único</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Acesso digital imediato</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Feito para quem está começando</span>
+      </div>
+    </div>
+
+    <div class="mock" aria-label="Ilustração demonstrativa do kit">
+      <span class="mock-note">Ilustração demonstrativa</span>
+      <div class="mock-sheet">
+        <div class="mock-top"><b>Calculadora · Preço Certo.xlsx</b><i></i></div>
+        <div class="mock-table" role="presentation">
+          <div class="mock-row h"><span>Item</span><span class="num">Custo</span><span class="num">Preço</span></div>
+          <div class="mock-row"><span>Esmaltação em gel</span><span class="num">R$ 18,40</span><span class="num">R$ 55,00</span></div>
+          <div class="mock-row"><span>Bolo 1 kg</span><span class="num">R$ 42,10</span><span class="num">R$ 110,00</span></div>
+          <div class="mock-row"><span>Visita técnica</span><span class="num">R$ 31,00</span><span class="num">R$ 90,00</span></div>
+          <div class="mock-row total"><span>Margem média</span><span class="num">—</span><span class="num">64%</span></div>
+        </div>
+        <div class="mock-bar" aria-hidden="true"><i style="width:36%;background:var(--coral)"></i><i style="width:14%;background:var(--yellow)"></i><i style="width:50%;background:var(--green)"></i></div>
+        <div class="mock-legend" aria-hidden="true"><span style="--c:var(--coral)">Custos</span><span style="--c:var(--yellow)">Despesas</span><span style="--c:var(--green)">Margem</span></div>
+      </div>
+      <div class="mock-pdf">
+        <small>Guia visual · PDF</small>
+        <strong>Como precificar sem adivinhar</strong>
+        <div class="lines"><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CALCULADORA ===================== -->
+<section id="simular" aria-labelledby="h-calc">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="eyebrow">Simulação interativa</span>
+      <h2 id="h-calc">Veja na prática como o preço se forma</h2>
+      <p class="lead">Preencha com números reais do seu negócio. É uma versão simplificada da lógica que está na calculadora completa do kit.</p>
+    </div>
+
+    <div class="calc-card rv">
+      <form class="calc-form" id="calcForm" novalidate>
+        <div class="field">
+          <label for="custo">Custo direto do produto ou serviço</label>
+          <small>Material, insumos, embalagem, o que você gasta para entregar uma unidade.</small>
+          <div class="input"><span>R$</span><input id="custo" inputmode="decimal" placeholder="0,00" value="25,00" autocomplete="off"></div>
+        </div>
+        <div class="field">
+          <label for="despesas">Despesas adicionais por unidade</label>
+          <small>Parte do aluguel, energia, deslocamento, taxa de maquininha, etc.</small>
+          <div class="input"><span>R$</span><input id="despesas" inputmode="decimal" placeholder="0,00" value="8,00" autocomplete="off"></div>
+        </div>
+        <div class="field">
+          <label for="margem">Margem desejada</label>
+          <small>Quanto do preço final você quer que sobre, em porcentagem.</small>
+          <div class="input suffix"><span>%</span><input id="margem" inputmode="numeric" placeholder="0" value="40" autocomplete="off"></div>
+          <input class="range" type="range" id="margemRange" min="0" max="90" step="1" value="40" aria-label="Ajustar margem desejada">
+          <div class="calc-err" id="calcErr" aria-live="polite"></div>
+        </div>
+      </form>
+
+      <div class="calc-result" aria-live="polite">
+        <div class="res-label">Preço sugerido</div>
+        <div class="res-value" id="resPreco">R$ 55,00</div>
+        <div class="price-sub">com <b id="resMargemTxt">40%</b> de margem sobre o preço</div>
+        <div class="res-grid">
+          <div class="res-item"><small>Custo + despesas</small><b id="resBase">R$ 33,00</b></div>
+          <div class="res-item"><small>Sobra por venda</small><b id="resSobra">R$ 22,00</b></div>
+        </div>
+        <div class="res-bar" aria-hidden="true"><i id="barCusto" style="background:var(--coral)"></i><i id="barDesp" style="background:var(--yellow)"></i><i id="barMarg" style="background:var(--green)"></i></div>
+        <div class="res-legend" aria-hidden="true"><span>Custo</span><span>Despesas</span><span>Margem</span></div>
+        <p class="calc-disclaimer">Simulação simplificada: preço = (custo + despesas) ÷ (1 − margem ÷ 100). Ela não inclui automaticamente impostos, taxas de plataforma, mão de obra ou outros custos não informados. O kit completo ajuda a mapear esses itens antes de definir o preço.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DORES E BENEFÍCIOS ===================== -->
+<section aria-labelledby="h-vs" style="background:var(--cream-2)">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="eyebrow">Por que isso importa</span>
+      <h2 id="h-vs">Trabalhar muito e não ver o dinheiro sobrar tem causa</h2>
+      <p class="lead">Na maioria das vezes, o problema não é falta de cliente — é preço definido olhando o concorrente, sem saber o próprio custo.</p>
+    </div>
+    <div class="vs rv">
+      <div class="vs-col">
+        <h3>O que costuma acontecer</h3>
+        <ul>
+          <li><svg class="pain-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Preço copiado de quem está do lado, sem saber se cobre os custos</li>
+          <li><svg class="pain-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Despesas fixas (aluguel, luz, maquininha) esquecidas na conta</li>
+          <li><svg class="pain-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Desconto dado no impulso que zera a margem</li>
+          <li><svg class="pain-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Fim do mês sem saber qual serviço vale a pena e qual dá prejuízo</li>
+        </ul>
+      </div>
+      <div class="vs-col">
+        <h3>O que muda com o Preço Certo</h3>
+        <ul>
+          <li><svg class="ok-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Custos organizados por item, em um lugar só</li>
+          <li><svg class="ok-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Despesas rateadas por unidade, para não ficarem de fora</li>
+          <li><svg class="ok-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Preço de referência com a margem que você escolher</li>
+          <li><svg class="ok-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Visão clara de quanto sobra por venda para negociar com segurança</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COMO FUNCIONA ===================== -->
+<section id="como-funciona" aria-labelledby="h-steps">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="eyebrow">Como funciona</span>
+      <h2 id="h-steps">Três etapas, sem planilha complicada</h2>
+    </div>
+    <div class="steps rv">
+      <div class="step"><h3>Liste os seus custos</h3><p>Anote o que você gasta em cada produto ou serviço: materiais, insumos, embalagem e tempo. O guia em PDF mostra o que não pode faltar.</p></div>
+      <div class="step"><h3>Distribua as despesas</h3><p>Informe aluguel, energia, taxas e outros gastos do mês. A calculadora rateia tudo por unidade vendida.</p></div>
+      <div class="step"><h3>Escolha a margem e veja o preço</h3><p>Defina quanto quer que sobre e receba um preço de referência — com a composição visual de custo, despesa e margem.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ARQUIVOS ===================== -->
+<section id="arquivos" aria-labelledby="h-files" style="background:var(--cream-2)">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="eyebrow">O que você recebe</span>
+      <h2 id="h-files">Dois arquivos que trabalham juntos</h2>
+      <p class="lead">Um para calcular, outro para entender. Os visuais abaixo são ilustrações demonstrativas; capturas reais serão adicionadas.</p>
+    </div>
+    <div class="files rv">
+      <article class="file">
+        <div class="file-vis">
+          <span class="tag">Ilustração</span>
+          <div class="xls" aria-hidden="true">
+            <div class="tabs"><span class="on">Produtos</span><span>Despesas</span><span>Resumo</span></div>
+            <div class="cells">
+              <span class="h">Item</span><span class="h">Custo</span><span class="h">Margem</span><span class="h">Preço</span>
+              <span>Mechas</span><span>62,00</span><span>45%</span><span class="k">112,73</span>
+              <span>Brigadeiro cx</span><span>14,50</span><span>50%</span><span class="k">29,00</span>
+              <span>Instalação</span><span>40,00</span><span>55%</span><span class="k">88,89</span>
+              <span>Unha fibra</span><span>22,30</span><span>60%</span><span class="k">55,75</span>
+            </div>
+          </div>
+        </div>
+        <div class="file-body">
+          <span class="kicker">Arquivo 1 · Excel (.xlsx)</span>
+          <h3>Calculadora de precificação</h3>
+          <p>Planilha pronta para preencher. Você digita os números; as fórmulas fazem o resto.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cadastro de produtos ou serviços com custo por item</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Rateio de despesas fixas por unidade</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Preço sugerido e margem calculados automaticamente</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="file">
+        <div class="file-vis">
+          <span class="tag">Ilustração</span>
+          <div class="pdfbook" aria-hidden="true">
+            <div class="page dark"><div class="t">Preço Certo</div><div class="l"><i></i><i></i><i></i><i></i></div><div class="chart"><i></i><i></i><i></i><i></i></div></div>
+            <div class="page"><div class="t">O que entra no custo?</div><div class="l"><i></i><i></i><i></i><i></i><i></i></div></div>
+          </div>
+        </div>
+        <div class="file-body">
+          <span class="kicker">Arquivo 2 · Guia visual (.pdf)</span>
+          <h3>Guia de precificação</h3>
+          <p>Explica, com exemplos, a lógica por trás de cada número da calculadora.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Diferença entre custo, despesa, margem e lucro</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Checklist de custos que costumam ser esquecidos</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Passo a passo para usar a planilha no dia a dia</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXEMPLOS ===================== -->
+<section aria-labelledby="h-ex">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="eyebrow">Exemplos</span>
+      <h2 id="h-ex">Como a conta fica em três negócios diferentes</h2>
+      <p class="lead">Os cenários abaixo são fictícios e servem apenas para mostrar a lógica. Os números do seu negócio serão outros.</p>
+    </div>
+    <div class="grid grid-3 rv">
+      <article class="ex">
+        <span class="fict">Exemplo fictício</span>
+        <div class="ex-head"><div class="icon coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-2 4-5 6-5 10a5 5 0 0 0 10 0c0-4-3-6-5-10z"/></svg></div><div><h3>Manicure</h3><small>Esmaltação em gel</small></div></div>
+        <ul class="ex-rows">
+          <li><span>Custo de material</span><span>R$ 12,00</span></li>
+          <li><span>Despesas por atendimento</span><span>R$ 9,00</span></li>
+          <li><span>Margem desejada</span><span>55%</span></li>
+          <li class="tot"><span>Preço de referência</span><span>R$ 46,67</span></li>
+        </ul>
+        <p class="ex-note">Antes, cobrava R$ 35 "porque todo mundo cobra". Com a conta aberta, dá para ver o que sobra e decidir se mantém, ajusta ou muda o serviço.</p>
+      </article>
+
+      <article class="ex">
+        <span class="fict">Exemplo fictício</span>
+        <div class="ex-head"><div class="icon yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11h16v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM4 11a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4M9 7V4M15 7V4"/></svg></div><div><h3>Confeiteira</h3><small>Bolo de 1 kg</small></div></div>
+        <ul class="ex-rows">
+          <li><span>Ingredientes e embalagem</span><span>R$ 38,00</span></li>
+          <li><span>Gás, energia, entrega</span><span>R$ 10,00</span></li>
+          <li><span>Margem desejada</span><span>45%</span></li>
+          <li class="tot"><span>Preço de referência</span><span>R$ 87,27</span></li>
+        </ul>
+        <p class="ex-note">O mesmo cálculo mostra que o brigadeiro avulso tem margem maior que o bolo — informação útil na hora de montar combos.</p>
+      </article>
+
+      <article class="ex">
+        <span class="fict">Exemplo fictício</span>
+        <div class="ex-head"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0 5 5L17 14l-7 7-3-3 7-7 2.7-2.7z"/><path d="M4 20l1-1"/></svg></div><div><h3>Prestador de serviços</h3><small>Instalação residencial</small></div></div>
+        <ul class="ex-rows">
+          <li><span>Peças e material</span><span>R$ 45,00</span></li>
+          <li><span>Deslocamento e ferramentas</span><span>R$ 25,00</span></li>
+          <li><span>Margem desejada</span><span>50%</span></li>
+          <li class="tot"><span>Preço de referência</span><span>R$ 140,00</span></li>
+        </ul>
+        <p class="ex-note">Quando o cliente pede desconto, ele sabe exatamente até onde pode ir sem trabalhar de graça.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OFERTA ===================== -->
+<section id="oferta" aria-labelledby="h-offer">
+  <div class="wrap">
+    <div class="offer rv">
+      <div>
+        <span class="eyebrow" style="color:var(--yellow)">Oferta</span>
+        <h2 id="h-offer">Preço Certo — Kit de Precificação</h2>
+        <p class="lead" style="margin-top:12px">Um investimento pequeno para parar de definir preços no escuro. Pagamento único, sem mensalidade.</p>
+        <ul class="incl">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Calculadora de precificação em Excel (.xlsx)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Guia visual de precificação em PDF</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Acesso digital logo após a confirmação do pagamento</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Uso ilimitado nos seus próprios produtos e serviços</li>
+        </ul>
+      </div>
+      <div class="offer-right">
+        <div class="price"><b>R$ 29,90</b><small>pagamento único</small></div>
+        <p class="price-sub">Pix ou cartão, pela plataforma de pagamento.</p>
+        <a href="#" class="btn btn-primary btn-block js-buy" style="margin-top:22px">Comprar o kit agora
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <div class="offer-foot">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Pagamento seguro</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h12"/></svg>Produto digital</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" aria-labelledby="h-faq" style="background:var(--cream-2)">
+  <div class="wrap">
+    <div class="section-head center rv">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2 id="h-faq">Antes de comprar</h2>
+    </div>
+    <div class="faq rv">
+      <details>
+        <summary>Preciso de Excel? Funciona no celular?</summary>
+        <div class="a">A calculadora é um arquivo .xlsx. Ela foi feita para o Microsoft Excel (computador ou aplicativo para celular). Também é possível abrir no Google Planilhas e em outros programas compatíveis, mas pequenas diferenças de formatação podem aparecer. O guia em PDF abre em qualquer celular ou computador.</div>
+      </details>
+      <details>
+        <summary>Como recebo os arquivos?</summary>
+        <div class="a">Após a confirmação do pagamento, você recebe o acesso aos arquivos por e-mail, pela plataforma de pagamento. Pagamentos por Pix costumam ser confirmados em minutos; por cartão, a confirmação depende da operadora.</div>
+      </details>
+      <details>
+        <summary>Serve para o meu tipo de negócio?</summary>
+        <div class="a">O kit foi pensado para quem vende produtos ou serviços e precisa saber quanto cobrar: manicures, confeiteiras, profissionais de beleza, prestadores de serviço e pequenos empreendedores em geral. A lógica de custo, despesa e margem é a mesma em qualquer área.</div>
+      </details>
+      <details>
+        <summary>A calculadora já inclui impostos e taxas?</summary>
+        <div class="a">Não de forma automática. Impostos, taxas de maquininha ou de plataforma variam de negócio para negócio, então eles entram como despesas que você informa. O guia mostra onde encaixar cada um para que nada fique de fora.</div>
+      </details>
+      <details>
+        <summary>E se eu tiver dúvidas no uso?</summary>
+        <div class="a">O guia em PDF traz o passo a passo de uso. Para dúvidas sobre o acesso ou os arquivos, fale pelo contato informado no rodapé desta página.</div>
+      </details>
+      <details>
+        <summary>Posso pedir reembolso?</summary>
+        <div class="a">Sim. Compras feitas pela internet têm direito a desistência em até 7 dias após a compra, conforme o Código de Defesa do Consumidor. O pedido é feito pela própria plataforma de pagamento.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== RODAPÉ ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="logo" style="margin-bottom:12px"><span class="logo-mark">R$</span>Preço Certo</a>
+        <p>Kit de precificação para autônomos e pequenos empreendedores. Produto digital, entregue por e-mail.</p>
+        <p style="margin-top:10px;font-size:.78rem">Esta página apresenta uma ferramenta de organização e cálculo. Ela não garante resultados financeiros, que dependem de cada negócio.</p>
+      </div>
+      <div>
+        <h4>Vendedor</h4>
+        <!-- SUBSTITUIR: dados do vendedor -->
+        <p><span class="placeholder">Nome ou razão social</span></p>
+        <p><span class="placeholder">CNPJ 00.000.000/0001-00</span></p>
+        <p><span class="placeholder">Cidade/UF</span></p>
+      </div>
+      <div>
+        <h4>Contato e políticas</h4>
+        <!-- SUBSTITUIR: e-mail, WhatsApp e links das políticas -->
+        <p><a href="mailto:contato@seudominio.com.br"><span class="placeholder">contato@seudominio.com.br</span></a></p>
+        <p><a href="#" rel="nofollow">Política de privacidade</a></p>
+        <p><a href="#" rel="nofollow">Termos de uso</a></p>
+        <p><a href="#" rel="nofollow">Política de reembolso</a></p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="ano"></span> Preço Certo. Todos os direitos reservados.</span>
+      <span>Os exemplos desta página são fictícios e ilustrativos.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky CTA (mobile) -->
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <div class="sp"><b>R$ 29,90</b><small>pagamento único</small></div>
+  <a href="#" class="btn btn-primary js-buy" tabindex="-1">Comprar o kit</a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =========================================================
+   CONFIGURAÇÃO — preencha antes de publicar
+   ========================================================= */
+const CHECKOUT_URL = ""; // Ex.: "https://pay.kiwify.com.br/XXXXXXX" — cole aqui o link gerado pela Kiwify
+
+/* ---------- Utilidades ---------- */
+const brl = n => n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const parseNum = s => {
+  if (s == null) return NaN;
+  s = String(s).trim().replace(/[R$\s%]/g,"");
+  if (!s) return NaN;
+  // Aceita "1.234,56", "1234,56", "1234.56"
+  if (s.includes(",")) s = s.replace(/\./g,"").replace(",",".");
+  return Number(s);
+};
+const $ = id => document.getElementById(id);
+
+/* ---------- Botões de compra ---------- */
+function showToast(msg){
+  const t = $("toast"); t.textContent = msg; t.classList.add("on");
+  clearTimeout(showToast._t); showToast._t = setTimeout(()=>t.classList.remove("on"),3200);
+}
+document.querySelectorAll(".js-buy").forEach(a=>{
+  if (CHECKOUT_URL) {
+    a.setAttribute("href", CHECKOUT_URL);
+    a.setAttribute("rel","noopener");
+  } else {
+    a.setAttribute("href","#oferta");
+  }
+  a.addEventListener("click", e=>{
+    if (!CHECKOUT_URL){
+      // Sem link configurado: não navega para um checkout inexistente.
+      e.preventDefault();
+      document.getElementById("oferta")?.scrollIntoView({behavior:"smooth",block:"start"});
+      showToast("Checkout ainda não configurado. Defina CHECKOUT_URL antes de publicar.");
+    }
+  });
+});
+
+/* ---------- Calculadora ---------- */
+const custoEl=$("custo"), despEl=$("despesas"), margEl=$("margem"), rangeEl=$("margemRange"), errEl=$("calcErr");
+
+function calc(){
+  const custo = parseNum(custoEl.value), desp = parseNum(despEl.value), marg = parseNum(margEl.value);
+  errEl.textContent = "";
+  if ([custo,desp,marg].some(Number.isNaN) || custo<0 || desp<0 || marg<0){
+    errEl.textContent = "Informe apenas números válidos (ex.: 25,00).";
+    return;
+  }
+  if (marg >= 100){
+    errEl.textContent = "A margem precisa ser menor que 100%.";
+    return;
+  }
+  const base = custo + desp;
+  const preco = base / (1 - marg/100);
+  const sobra = preco - base;
+  $("resPreco").textContent = brl(preco);
+  $("resBase").textContent = brl(base);
+  $("resSobra").textContent = brl(sobra);
+  $("resMargemTxt").textContent = marg.toLocaleString("pt-BR",{maximumFractionDigits:1}) + "%";
+  const pc = preco>0 ? (custo/preco)*100 : 0, pd = preco>0 ? (desp/preco)*100 : 0;
+  $("barCusto").style.width = pc+"%";
+  $("barDesp").style.width = pd+"%";
+  $("barMarg").style.width = Math.max(0,100-pc-pd)+"%";
+}
+[custoEl,despEl].forEach(el=>el.addEventListener("input",calc));
+margEl.addEventListener("input",()=>{ const v=parseNum(margEl.value); if(!Number.isNaN(v)) rangeEl.value=Math.min(90,Math.max(0,v)); calc(); });
+rangeEl.addEventListener("input",()=>{ margEl.value=rangeEl.value; calc(); });
+[custoEl,despEl].forEach(el=>el.addEventListener("blur",()=>{ const v=parseNum(el.value); if(!Number.isNaN(v)) el.value=v.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}); }));
+calc();
+
+/* ---------- Animações discretas ---------- */
+if ("IntersectionObserver" in window){
+  const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }),{rootMargin:"0px 0px -8% 0px"});
+  document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+} else { document.querySelectorAll(".rv").forEach(el=>el.classList.add("in")); }
+
+/* ---------- CTA fixo no mobile: aparece após o hero, some na oferta ---------- */
+const sticky=$("stickyCta"), hero=document.querySelector(".hero"), oferta=$("oferta");
+if ("IntersectionObserver" in window){
+  let heroVisible=true, ofertaVisible=false;
+  const upd=()=>{ const show=!heroVisible && !ofertaVisible; sticky.classList.toggle("show",show); sticky.setAttribute("aria-hidden",String(!show)); sticky.querySelector("a").tabIndex = show?0:-1; };
+  new IntersectionObserver(([e])=>{heroVisible=e.isIntersecting;upd();},{threshold:.1}).observe(hero);
+  new IntersectionObserver(([e])=>{ofertaVisible=e.isIntersecting;upd();},{threshold:.15}).observe(oferta);
+}
+
+$("ano").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
